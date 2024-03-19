@@ -54,14 +54,12 @@
         //Se debe utiliza un secret store por ejemplo con kubernetes, vault
 
         
-        //practica de seguridad #8
+        //practica de seguridad #9
         //Las variables que estan en merio de datos sencibles deben ser limpiadas para evitar robos de informacion
         //sse puede dar por medio de un memori dump o vaciado de memoria
 
-        
+        //
 
-       
-        
 
     }
     ?>
