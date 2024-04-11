@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Interactivo</title>
+</head>
+<body>
+    <form id="miFormulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+        <label for="genero">Género:</label>
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="femenino" name="genero" value="femenino">
+        <label for="femenino">Femenino</label><br>
+
+        <label for="aceptarTerminos">Acepto los términos y condiciones:</label>
+        <input type="checkbox" id="aceptarTerminos" name="aceptarTerminos" required><br>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+    </form>
+
+    <div id="mensajeError"></div>
+    <img id="imagen" src="regis.png" alt="Imagen inicial">
+
+    <script type="text/JavaScript">
+        document.getElementById('miFormulario').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío del formulario por defecto
+
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+    var generoSeleccionado = document.querySelector('input[name="genero"]:checked');
+    var aceptarTerminos = document.getElementById('aceptarTerminos').checked;
+
+    var mensajeError = document.getElementById('mensajeError');
+    mensajeError.innerHTML = ''; // Limpia el mensaje de error anterior
+
+    // Verifica que las contraseñas coincidan
+    if (password !== confirmPassword) {
+        mensajeError.innerHTML = 'Las contraseñas no coinciden.';
+        return;
+    }
+
+    // Verifica que se haya seleccionado un género
+    if (!generoSeleccionado) {
+        mensajeError.innerHTML = 'Por favor, selecciona un género.';
+        return;
+    }
+
+    // Verifica que se haya aceptado los términos y condiciones
+    if (!aceptarTerminos) {
+        mensajeError.innerHTML = 'Debes aceptar los términos y condiciones.';
+        return;
+    }
+
+    // Si todo está bien, cambia la imagen
+    document.getElementById('imagen').src = 'imagen2.jpeg';
+});
+
+    </script>
+</body>
+</html>

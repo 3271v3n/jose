@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro JS</title>
+</head>
+<body>
+    <h1>Registro Ususarios</h1>
+    <img src="regis.png" alt="" />
+
+    <form action="">
+        Nombre: <input type="text" name="nombre" id="nombre" onkeypress="onNombreKeyPress(this);"/><br>
+        Fecha Nacimiento: <input type="date" name="fechaNacimiento" id="fechaNacimiento"/><br>
+        Genero: <input type="radio" name="genero" value="m"> Masculino
+                <input type="radio" name="genero" value="f">Femenino <br>
+        Lugar de nacimiento <select name="lugarNacimiento">
+            <option value="mani">Manizales</option>
+            <option value="bogo">Bogota</option>
+            <option value="mede">Medellin</option>
+        </select> <br>
+        Elegir Color: <input type="color" name="color" name="colorPreferido"><br>
+        Password: <input type="password" name="clave"/> <br>
+        Confirmar: <input type="password" name="confirmarClave" /><br>
+
+        <input type="checkbox" name="aceptarCondicion" >Acepto Terminos Y Condiciones <br>
+        
+    </form>
+    <button onclick="registrarse()">Registrarse</button>
+    <script type="text/JavaScript">
+        function registrarse() {
+            let nombreElem = document.getElementById('nombre');
+            if (nombreElem.value == '') {
+                nombreElem.style.background = 'red';
+                nombreElem.focus();
+                alert('Digite nombre')
+            }
+        }
+        function onNombreKeyPress(nombreElem) {
+            nombreElem.style.background = 'none';
+        }
+        
+    </script>
+</body>
+</html>

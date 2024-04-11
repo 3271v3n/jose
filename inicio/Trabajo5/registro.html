@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro JS</title>
+</head>
+<body>
+    <h1>Registro Ususarios</h1>
+    
+
+    <form id="formulario">
+        Nombre: <input type="text" name="nombre" id="nombre" required/><br>
+        Apellido: <input type="text" name="apellido" id="apellido"/><br>
+        Fecha Nacimiento: <input type="date" name="fechaNacimiento" id="fechaNacimiento" required/><br>
+        Genero: <input type="radio" name="genero" value="masculino" id="masculino"> Masculino
+                <input type="radio" name="genero" value="femenino" id="femenino">Femenino 
+                <input type="radio" name="genero" value="otro" id="otro">Otro<br>
+        Lugar de nacimiento <select name="lugarNacimiento">
+            <option value="mani">Manizales</option>
+            <option value="bogo">Bogota</option>
+            <option value="mede">Medellin</option>
+            <option value="cali">Cali</option>
+            <option value="perei">Pereira</option>
+            <option value="past">Pasto</option>
+        </select> <br>
+        Apodo de la infancia: <input type="text" name="apodo" id="apodo"><br>
+        Password: <input type="password" name="password" id="password" required/> <br>
+        Confirmar: <input type="password" name="confirmarPassword" id="confirmarPassword" required/><br>
+
+        <input type="checkbox" name="aceptarCondicion" id="aceptarCondicion" required >Acepto Terminos Y Condiciones <br>
+        <input type="submit" value="registrar">
+        <input type="reset" value="limpiar">
+    </form>
+    <!--<button onclick="Login()">registrarse</button>-->
+    <img src="regis.png" alt="imagen1" id="imagen" >
+    <div id="error"></div>
+
+    
+    <script type="text/JavaScript">
+        
+        //function Login() {
+
+            document.getElementById('formulario').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                let password = document.getElementById('password').value;
+                let confirmPassword = document.getElementById('confirmarPassword').value;
+                let selectGenero = document.querySelector('genero');
+                let terminos = document.getElementById('aceptarCondicion').checked;
+                
+                let mesnajeError = documentgetElementById('error');
+                mesnajeError.innerHTML ='';
+
+                //validar clave
+                if (password !== confirmPassword){
+                    mesnajeError.innerHTML = 'Contraseña incorrecta.';
+                    return;
+                }
+
+                //validar genero
+                if (!selecctGenero) {
+                    mesnajeError.innerHTML = 'Seleccione genero.';
+                    return;
+                }
+
+                //validar terminos y condiciones 
+                if (!terminos) {
+                    mesnajeError.innerHTML = "Debe aceptar terminos y condiciones.";
+                    return;
+                }
+
+                documentgetElementById('imagen').src ='imagen2.jpeg';
+        });    
+       
+        
+    </script>
+</body>
+</html>
